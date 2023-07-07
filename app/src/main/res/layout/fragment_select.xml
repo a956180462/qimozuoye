@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SelectFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/ComeIn"
+            android:layout_width="140dp"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:text="收入总计"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.099"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.225" />
+
+        <TextView
+            android:id="@+id/ComeInNum"
+            android:layout_width="190dp"
+            android:layout_height="60dp"
+            android:text="+290.05元"
+            android:textSize="30sp"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="@+id/ComeIn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.14"
+            app:layout_constraintStart_toEndOf="@+id/ComeIn"
+            app:layout_constraintTop_toTopOf="@+id/ComeIn"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/Total"
+            android:layout_width="140dp"
+            android:layout_height="60dp"
+            android:text="总计"
+            android:textSize="30sp"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="@+id/TotalNum"
+            app:layout_constraintEnd_toEndOf="@+id/Expenses"
+            app:layout_constraintStart_toStartOf="@+id/Expenses"
+            app:layout_constraintTop_toTopOf="@+id/TotalNum" />
+
+        <TextView
+            android:id="@+id/ExpensesNum"
+            android:layout_width="190dp"
+            android:layout_height="60dp"
+            android:text="-580元"
+            android:textSize="30sp"
+            android:gravity="center"
+            app:layout_constraintBottom_toTopOf="@+id/TotalNum"
+            app:layout_constraintEnd_toEndOf="@+id/ComeInNum"
+            app:layout_constraintStart_toStartOf="@+id/ComeInNum"
+            app:layout_constraintTop_toBottomOf="@+id/ComeInNum" />
+
+        <TextView
+            android:id="@+id/Expenses"
+            android:layout_width="140dp"
+            android:layout_height="60dp"
+            android:text="支出总计"
+            android:textSize="30sp"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="@+id/ExpensesNum"
+            app:layout_constraintEnd_toEndOf="@+id/ComeIn"
+            app:layout_constraintStart_toStartOf="@+id/ComeIn"
+            app:layout_constraintTop_toTopOf="@+id/ExpensesNum" />
+
+        <TextView
+            android:id="@+id/TotalNum"
+            android:layout_width="190dp"
+            android:layout_height="60dp"
+            android:text="-120元"
+            android:textSize="30sp"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/ExpensesNum"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/ExpensesNum"
+            app:layout_constraintTop_toBottomOf="@+id/ComeInNum"
+            app:layout_constraintVertical_bias="0.355" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

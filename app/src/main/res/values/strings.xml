@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">qimozuoye</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome!"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"账户或密码错误"</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="label_login">登录</string>
+    <string name="label_account">账户信息</string>
+    <string name="label_Nav">导航页面</string>
+    <string name="label_select">收支查询</string>
+    <string name="label_ComeinReg">收入登记</string>
+    <string name="label_ComeinSta">收入总览</string>
+    <string name="label_ExpensesReg">支出登记</string>
+    <string name="label_ExpensesSta">支出总览</string>
+
+</resources>

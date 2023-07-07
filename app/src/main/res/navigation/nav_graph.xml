@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    android:label="@string/label_Nav"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="cna.self.qimozuoye.ui.login.LoginFragment"
+        android:label="@string/label_login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_firstFragment"
+            app:destination="@id/firstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/firstFragment"
+        android:name="cna.self.qimozuoye.FirstFragment"
+        android:label="@string/label_Nav"
+        tools:layout="@layout/fragment_first">
+        <action
+            android:id="@+id/action_firstFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+        <action
+            android:id="@+id/action_firstFragment_to_comeinRegisterFragment2"
+            app:destination="@id/comeinRegisterFragment" />
+        <action
+            android:id="@+id/action_firstFragment_to_expensesRegisterFragment"
+            app:destination="@id/expensesRegisterFragment" />
+        <action
+            android:id="@+id/action_firstFragment_to_comeinStatisticsFragment"
+            app:destination="@id/comeinStatisticsFragment" />
+        <action
+            android:id="@+id/action_firstFragment_to_expensesStatisticsFragment"
+            app:destination="@id/expensesStatisticsFragment" />
+        <action
+            android:id="@+id/action_firstFragment_to_selectFragment"
+            app:destination="@id/selectFragment" />
+        <action
+            android:id="@+id/action_firstFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="cna.self.qimozuoye.AccountFragment"
+        android:label="@string/label_account"
+        tools:layout="@layout/fragment_account">
+        <action
+            android:id="@+id/action_accountFragment_to_firstFragment"
+            app:destination="@id/firstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/comeinRegisterFragment"
+        android:name="cna.self.qimozuoye.ComeinRegisterFragment"
+        android:label="@string/label_ComeinReg"
+        tools:layout="@layout/fragment_comein_register">
+        <action
+            android:id="@+id/action_comeinRegisterFragment_to_firstFragment"
+            app:destination="@id/firstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/expensesRegisterFragment"
+        android:name="cna.self.qimozuoye.ExpensesRegisterFragment"
+        android:label="@string/label_ExpensesReg"
+        tools:layout="@layout/fragment_expenses_register">
+        <action
+            android:id="@+id/action_expensesRegisterFragment_to_firstFragment"
+            app:destination="@id/firstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/comeinStatisticsFragment"
+        android:name="cna.self.qimozuoye.ComeinStatisticsFragment"
+        android:label="@string/label_ComeinSta"
+        tools:layout="@layout/fragment_comein_statistics">
+        <action
+            android:id="@+id/action_comeinStatisticsFragment_to_firstFragment"
+            app:destination="@id/firstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/expensesStatisticsFragment"
+        android:name="cna.self.qimozuoye.ExpensesStatisticsFragment"
+        android:label="@string/label_ExpensesSta"
+        tools:layout="@layout/fragment_expenses_statistics">
+        <action
+            android:id="@+id/action_expensesStatisticsFragment_to_firstFragment"
+            app:destination="@id/firstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectFragment"
+        android:name="cna.self.qimozuoye.SelectFragment"
+        android:label="@string/label_select"
+        tools:layout="@layout/fragment_select">
+        <action
+            android:id="@+id/action_selectFragment_to_firstFragment"
+            app:destination="@id/firstFragment" />
+    </fragment>
+</navigation>
