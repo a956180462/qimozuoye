@@ -11,11 +11,20 @@ import cna.self.qimozuoye.data.Result;
 import cna.self.qimozuoye.data.model.LoggedInUser;
 import cna.self.qimozuoye.R;
 
-public class LoginViewModel extends ViewModel {
+/**
+ * 文本框输入有效性查验、登录请求发起
+ *
+ * */
 
+public class LoginViewModel extends ViewModel {
+    // 注意MutableLiveData，这是活动数据，当loginFormState发生改变时
+    // 我们可以用loginFormState.observe();来触发事件
+    // 很像一个中断
     private final MutableLiveData<LoginFormState> loginFormState = new MutableLiveData<>();
     private final MutableLiveData<LoginResult> loginResult = new MutableLiveData<>();
     private final LoginRepository loginRepository;
+
+
 
     LoginViewModel(LoginRepository loginRepository) {
         this.loginRepository = loginRepository;
@@ -29,6 +38,7 @@ public class LoginViewModel extends ViewModel {
         return loginResult;
     }
 
+//    发起登录请求，获取Result，
     public void login(String username, String password) {
         // can be launched in a separate asynchronous job
         Result<LoggedInUser> result = loginRepository.login(username, password);
@@ -41,7 +51,7 @@ public class LoginViewModel extends ViewModel {
     }
 
 
-
+//      输入有效性结果设置
     public void loginDataChanged(String username, String password) {
         if (!isUserNameValid(username)) {
             loginFormState.setValue(new LoginFormState(R.string.invalid_username, null));
@@ -52,7 +62,7 @@ public class LoginViewModel extends ViewModel {
         }
     }
 
-    // A placeholder username validation check
+    // 用户名有效性判断
     private boolean isUserNameValid(String username) {
         if (username == null) {
             return false;
@@ -65,7 +75,7 @@ public class LoginViewModel extends ViewModel {
         }
     }
 
-    // A placeholder password validation check
+    // 密码有效性判断
     private boolean isPasswordValid(String password) {
         return password != null && password.trim().length() > 5;
     }

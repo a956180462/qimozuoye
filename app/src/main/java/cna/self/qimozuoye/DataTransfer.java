@@ -5,7 +5,9 @@ import java.util.List;
 
 import cna.self.qimozuoye.data.UserDataBase.ComeIn;
 import cna.self.qimozuoye.data.UserDataBase.Expenses;
-
+/**
+ * 简单的数据中转站
+ * */
 public class DataTransfer {
     public static boolean isOnFirstFragment = false;
     public static boolean isOnLoginFragment = false;

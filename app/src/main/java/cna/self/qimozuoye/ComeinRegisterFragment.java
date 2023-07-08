@@ -26,15 +26,14 @@ import cna.self.qimozuoye.data.UserDataBase.ComeIn;
 import cna.self.qimozuoye.data.model.LoggedInUser;
 import cna.self.qimozuoye.databinding.FragmentComeinRegisterBinding;
 
+/**
+ * 提前说明，ComeinRegisterFragment和 ExpensesRegisterFragment是几乎一样的
+ * */
 
 public class ComeinRegisterFragment extends Fragment {
 
     private FragmentComeinRegisterBinding binding;
     private boolean isInputValid = false;
-
-    public ComeinRegisterFragment() {
-        // Required empty public constructor
-    }
 
     @Override
     public View onCreateView(
@@ -46,15 +45,17 @@ public class ComeinRegisterFragment extends Fragment {
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
-        showDateOnClick((EditText) binding.editTextDate);
+        // 点击输入框时显示日历
+        showDateOnClick(binding.editTextDate);
+        // 提交按键使能，和输入有效性有关
         binding.button.setEnabled(isInputValid);
+        // 输入变化后查验有效性
         TextWatcher afterTextChangedListener = new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
             }
             @Override
             public void afterTextChanged(Editable s) {
@@ -63,11 +64,14 @@ public class ComeinRegisterFragment extends Fragment {
         };
         binding.editTextNumber.addTextChangedListener(afterTextChangedListener);
         binding.editTextNumber.addTextChangedListener(afterTextChangedListener);
+        // 数据提交事件
         binding.button.setOnClickListener(v -> {
+            // 一般数据装载
             ComeIn comeIn = new ComeIn();
             comeIn.setAccount(LoggedInUser.getAccount());
             comeIn.setMoney(Float.parseFloat(binding.editTextNumber.getText().toString()));
             comeIn.setRemark(binding.editTextTextMultiLine.getText().toString());
+            // 日期数据装载、数据插入
             try {
                 String s = binding.editTextDate.getText().toString();
                 @SuppressLint("SimpleDateFormat")
@@ -80,6 +84,7 @@ public class ComeinRegisterFragment extends Fragment {
                 Toast.makeText(getContext(), "加入失败", Toast.LENGTH_SHORT).show();
             }
             Toast.makeText(getContext(), "加入成功", Toast.LENGTH_SHORT).show();
+            // 重置文本框
             binding.editTextNumber.setText("");
             binding.editTextDate.setText("");
             binding.editTextTextMultiLine.setText("");
@@ -110,10 +115,12 @@ public class ComeinRegisterFragment extends Fragment {
     //选择日期,改变文本
     protected void showDatePickDlg(final EditText editText) {
         Calendar calendar = Calendar.getInstance();
-        @SuppressLint("SetTextI18n") DatePickerDialog datePickerDialog =
+        @SuppressLint("SetTextI18n")
+        DatePickerDialog datePickerDialog =
                 new DatePickerDialog(
                         getContext(),
                         (view, year, monthOfYear, dayOfMonth) -> {
+                            // 格式化日期，否则会出现数据插入失败的问题
                             @SuppressLint("DefaultLocale")
                             String s = String.format("%04d-%02d-%02d",
                                                         year, (monthOfYear + 1), dayOfMonth);
@@ -127,6 +134,7 @@ public class ComeinRegisterFragment extends Fragment {
         datePickerDialog.show();
     }
 
+    // 输入合法性查验
     void CheckInputValid(){
         isInputValid = !(binding.editTextDate.getText().toString().isEmpty()||
                 binding.editTextNumber.getText().toString().isEmpty());

@@ -5,7 +5,9 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.widget.Toast;
-
+/**
+ * 一个没什么用的Handler，有机会再优化
+ * */
 public interface MainHandler {
     int REG_RESULT      = 100020;
     Handler handler = new Handler(Looper.getMainLooper(), msg -> {

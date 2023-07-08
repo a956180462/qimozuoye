@@ -5,7 +5,9 @@ import cna.self.qimozuoye.data.UserDataBase.User;
 import cna.self.qimozuoye.data.model.LoggedInUser;
 
 /**
- * Class that handles authentication w/ login credentials and retrieves user information.
+ * 登录页面附属类
+ * 用于查验账户
+ * 返回：Result类型，成功则为.Success，失败则为.Error
  */
 public class LoginDataSource {
     DBase db = DataBaseHolder.getDb();

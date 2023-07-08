@@ -25,16 +25,13 @@ import cna.self.qimozuoye.data.DataBaseHolder;
 import cna.self.qimozuoye.data.UserDataBase.Expenses;
 import cna.self.qimozuoye.data.model.LoggedInUser;
 import cna.self.qimozuoye.databinding.FragmentExpensesRegisterBinding;
-
-
+/**
+ * 提前说明，和 ComeinRegisterFragment是几乎一样的
+ * */
 public class ExpensesRegisterFragment extends Fragment {
 
     private FragmentExpensesRegisterBinding binding;
     private boolean isInputValid = false;
-
-    public ExpensesRegisterFragment() {
-        // Required empty public constructor
-    }
 
     @Override
     public View onCreateView(

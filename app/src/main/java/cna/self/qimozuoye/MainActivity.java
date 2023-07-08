@@ -15,8 +15,12 @@ import androidx.navigation.ui.NavigationUI;
 
 import cna.self.qimozuoye.data.DataBaseHolder;
 import cna.self.qimozuoye.databinding.ActivityMainBinding;
-
-
+/**
+ * 该 App使用了 Navigation 控件
+ * Navigation使用时在 Fragment 中不再使用findViewById方法
+ * 而是获取对应Fragment 的 binding
+ * 通过 binding 获取视图
+ * */
 public class MainActivity extends AppCompatActivity implements MainHandler{
 
 
@@ -50,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements MainHandler{
         return true;
     }
 
+    // 菜单键，没设置，就一个没有用的键
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -65,6 +70,7 @@ public class MainActivity extends AppCompatActivity implements MainHandler{
         return super.onOptionsItemSelected(item);
     }
 
+    // 启动
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
@@ -72,22 +78,28 @@ public class MainActivity extends AppCompatActivity implements MainHandler{
                 || super.onSupportNavigateUp();
     }
 
+    // 返回键监听
     @Override
     public void onBackPressed() {
-        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment_content_main);
-
+        Fragment fragment = getSupportFragmentManager()
+                                .findFragmentById(R.id.nav_host_fragment_content_main);
+        // 限定在FirstFragment和 LoginFragment中发生变化
         if (fragment != null &&
                 (DataTransfer.isOnFirstFragment || DataTransfer.isOnLoginFragment)) {
             if(forQuit){
+                // 退出程序
                 finish();
             }else {
+                // 进入退出准备状态
                 forQuit = true;
                 Toast.makeText(this, "再按一次退出应用", Toast.LENGTH_SHORT).show();
                 Log.e("Quit","0");
                 new Thread(() -> {
                     try {
+                        // 新线程等待1.2s
                         synchronized (this){
                             wait(1200);
+                            // 结束退出准备状态
                             forQuit = false;
                             Log.e("Quit","false");
                         }

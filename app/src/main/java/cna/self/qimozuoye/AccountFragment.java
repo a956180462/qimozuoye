@@ -11,14 +11,13 @@ import androidx.fragment.app.Fragment;
 import cna.self.qimozuoye.data.model.LoggedInUser;
 import cna.self.qimozuoye.databinding.FragmentAccountBinding;
 
+/**
+ * 就一张照片，一个文本框
+ * */
 
 public class AccountFragment extends Fragment {
 
     private FragmentAccountBinding binding;
-
-    public AccountFragment() {
-        // Required empty public constructor
-    }
 
     @Override
     public View onCreateView(

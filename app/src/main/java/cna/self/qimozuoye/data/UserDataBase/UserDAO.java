@@ -10,6 +10,8 @@ import java.util.List;
 
 @Dao
 public interface UserDAO {
+
+    //增
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     long insertUser(User user);
 
@@ -19,12 +21,14 @@ public interface UserDAO {
     @Insert
     void insertExpense(Expenses expenses);
 
+    //删
     @Delete
     void delComeIn(ComeIn comeIn);
 
     @Delete
     void delExpense(Expenses expenses);
 
+    //查
     @Query("SELECT * FROM ComeIn WHERE Account = :account ORDER BY Date ASC")
     List<ComeIn> getComeIns(String account);
 

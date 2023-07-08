@@ -8,8 +8,8 @@ import cna.self.qimozuoye.data.LoginDataSource;
 import cna.self.qimozuoye.data.LoginRepository;
 
 /**
- * ViewModel provider factory to instantiate LoginViewModel.
- * Required given LoginViewModel has a non-empty constructor
+ * 用来提供LoginViewModel的工厂
+ * 可以返回一个非空的LoginViewModel
  */
 public class LoginViewModelFactory implements ViewModelProvider.Factory {
 

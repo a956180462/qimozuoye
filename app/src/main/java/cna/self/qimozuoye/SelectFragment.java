@@ -14,7 +14,9 @@ import cna.self.qimozuoye.data.UserDataBase.UserDAO;
 import cna.self.qimozuoye.data.model.LoggedInUser;
 import cna.self.qimozuoye.databinding.FragmentSelectBinding;
 
-
+/**
+ * 朴实无华的统计页面（一开始想做查询页面来着，但是懒）
+ * */
 public class SelectFragment extends Fragment {
 
     private FragmentSelectBinding binding;
@@ -35,8 +37,10 @@ public class SelectFragment extends Fragment {
     @SuppressLint("DefaultLocale")
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         UserDAO dao = DataBaseHolder.getDb().userDAO();
+        // 初始化，你也不想让两个null相加然后报错吧。。。
         Float comeIn = 0f;
         Float expenses = 0f;
+        // 查询
         Float TComeIn   = dao.TotalComeInMoney(LoggedInUser.getAccount());
         Float TExpenses = dao.TotalExpensesMoney(LoggedInUser.getAccount());
         if(TComeIn != null){
@@ -45,6 +49,7 @@ public class SelectFragment extends Fragment {
         if (TExpenses != null){
             expenses = TExpenses;
         }
+        // 显示
         binding.ComeInNum.setText(String.format("%.2f",comeIn));
         binding.ExpensesNum.setText(String.format("%.2f",expenses));
         binding.TotalNum.setText(String.format("%.2f",comeIn + expenses));

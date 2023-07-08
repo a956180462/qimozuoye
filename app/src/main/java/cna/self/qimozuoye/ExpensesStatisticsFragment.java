@@ -19,7 +19,9 @@ import cna.self.qimozuoye.data.UserDataBase.Expenses;
 import cna.self.qimozuoye.data.model.LoggedInUser;
 import cna.self.qimozuoye.databinding.FragmentExpensesStatisticsBinding;
 
-
+/**
+ * 提前说明，和 ComeinStatisticsFragment是几乎一样的
+ * */
 public class ExpensesStatisticsFragment extends Fragment {
 
     private static final MutableLiveData<List<Expenses>> data = new MutableLiveData<>();
@@ -44,6 +46,7 @@ public class ExpensesStatisticsFragment extends Fragment {
         listView.setAdapter(adapter);
 
         data.observe(getViewLifecycleOwner(), list -> {
+            DataTransfer.listExpenses = data.getValue();
             adapter.ChangeList(data.getValue());
             adapter.notifyDataSetChanged();
         });

@@ -1,13 +1,16 @@
 package cna.self.qimozuoye.data;
 
 /**
- * A generic class that holds a result success w/ data or an error exception.
+ * 很有趣的写法
+ * Result的模板类
+ * 包含两个子类：Success和Error
  */
 public class Result<T> {
     // hide the private constructor to limit subclass types (Success, Error)
     private Result() {
     }
 
+    //重新的toString,可以获取Result的信息
     @Override
     public String toString() {
         if (this instanceof Result.Success) {
@@ -20,7 +23,7 @@ public class Result<T> {
         return "";
     }
 
-    // Success sub-class
+    // Success，成功就包含一份存储用户信息的数据，
     public final static class Success<T> extends Result {
         private final T data;
 
@@ -33,7 +36,7 @@ public class Result<T> {
         }
     }
 
-    // Error sub-class
+    // Error，失败就包含一个错误信息
     public final static class Error extends Result {
         private final Exception error;
 

@@ -3,8 +3,9 @@ package cna.self.qimozuoye.data;
 import cna.self.qimozuoye.data.model.LoggedInUser;
 
 /**
- * Class that requests authentication and user information from the remote data source and
- * maintains an in-memory cache of login status and user credentials information.
+ * 在login查验数据库之前封装了一次
+ * 是查验数据库的代理类
+ * 可以在后期做拓展用
  */
 public class LoginRepository {
 
@@ -16,6 +17,7 @@ public class LoginRepository {
         this.dataSource = dataSource;
     }
 
+    // 获取LoginRepository对象，保障了全局只获得了一个LoginRepository对象
     public static LoginRepository getInstance(LoginDataSource dataSource) {
         if (instance == null) {
             instance = new LoginRepository(dataSource);
@@ -23,16 +25,8 @@ public class LoginRepository {
         return instance;
     }
 
-    private void setLoggedInUser() {
-
-    }
-
     public Result<LoggedInUser> login(String username, String password) {
-        // handle login
-        Result<LoggedInUser> result = dataSource.login(username, password);
-        if (result instanceof Result.Success) {
-            setLoggedInUser();
-        }
-        return result;
+        //
+        return dataSource.login(username, password);
     }
 }

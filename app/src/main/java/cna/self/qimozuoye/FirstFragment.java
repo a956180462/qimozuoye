@@ -12,7 +12,9 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import cna.self.qimozuoye.data.model.LoggedInUser;
 import cna.self.qimozuoye.databinding.FragmentFirstBinding;
-
+/**
+ * 导航跳转页面
+ * */
 public class FirstFragment extends Fragment {
 
     private FragmentFirstBinding binding;
@@ -50,9 +52,11 @@ public class FirstFragment extends Fragment {
                     .navigate(R.id.action_firstFragment_to_loginFragment);
         });
 
+        // 关闭顶栏的返回键
         Toolbar toolBar = requireActivity().findViewById(R.id.toolbar);
         toolBar.setNavigationIcon(null);
 
+        // 提示在FirstFragment页，返回键监听有变化
         DataTransfer.isOnFirstFragment = true;
 
 
@@ -61,6 +65,7 @@ public class FirstFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        // 提示已经不再FirstFragment页
         DataTransfer.isOnFirstFragment = false;
         binding = null;
     }

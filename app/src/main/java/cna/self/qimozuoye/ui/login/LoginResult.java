@@ -3,7 +3,7 @@ package cna.self.qimozuoye.ui.login;
 import androidx.annotation.Nullable;
 
 /**
- * Authentication result : success (user details) or error message.
+ * Result的解包类
  */
 class LoginResult {
     @Nullable

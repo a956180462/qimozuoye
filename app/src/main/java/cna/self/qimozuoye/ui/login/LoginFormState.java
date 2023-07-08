@@ -3,7 +3,7 @@ package cna.self.qimozuoye.ui.login;
 import androidx.annotation.Nullable;
 
 /**
- * Data validation state of the login form.
+ * 登录输入框中，输入的有效性状态：
  */
 class LoginFormState {
     @Nullable
